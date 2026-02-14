@@ -1,0 +1,303 @@
+/* love-cards.css - Estilos exclusivos para los cards con imágenes y mensajes */
+
+/* Contenedor principal de cards */
+#cardContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos base del card */
+.love-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(255, 51, 102, 0.3),
+                0 0 0 2px #ff3366,
+                0 0 0 5px #fff;
+    min-width: 350px;
+    max-width: 500px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: 1001;
+}
+
+/* Card visible */
+.love-card.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: all !important;
+}
+
+/* Card oculto (animación de salida) */
+.love-card.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(0.8);
+    pointer-events: none;
+}
+
+/* Contenido del card */
+.love-card-content {
+    padding: 20px;
+    position: relative;
+    pointer-events: all !important;
+}
+
+/* Encabezado del card */
+.love-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ff3366;
+}
+
+.love-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ff3366;
+    text-shadow: 0 2px 5px rgba(255, 51, 102, 0.3);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Botón de cerrar */
+.love-card-close {
+    background: none;
+    border: none;
+    font-size: 2em;
+    color: #ff3366;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    line-height: 1;
+    position: relative;
+    z-index: 2000;
+    pointer-events: auto !important;
+}
+
+.love-card-close:hover {
+    background: #ff3366;
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* Cuerpo del card */
+.love-card-body {
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Contenedor de la imagen */
+.love-card-image-container {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+}
+
+/* Estilo de la imagen */
+.love-card-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.love-card-image:hover {
+    transform: scale(1.05);
+}
+
+/* ===== ESTILOS PARA LAS FRASES DE AMOR ===== */
+.love-card-message {
+    font-size: 1.4em;
+    color: #ff3366;
+    margin: 15px 0;
+    line-height: 1.6;
+    font-weight: 600;
+    font-family: 'Arial', sans-serif;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 10px;
+    background: rgba(255, 51, 102, 0.1);
+    border-radius: 10px;
+    animation: messageGlow 2s ease-in-out infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animación suave para las frases */
+@keyframes messageGlow {
+    0%, 100% {
+        text-shadow: 0 0 5px #ff3366;
+    }
+    50% {
+        text-shadow: 0 0 15px #ff3366, 0 0 30px #ff1493;
+    }
+}
+
+/* Pie del card */
+.love-card-footer {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed #ff3366;
+    text-align: center;
+    color: #ff3366;
+    font-size: 0.9em;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Animación de las hojas al hacer clic */
+.flower__leafs {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.flower__leafs.active {
+    filter: drop-shadow(0 0 20px #ff3366) drop-shadow(0 0 40px #ff0066);
+}
+
+/* Animación del círculo blanco al hacer clic */
+.flower__white-circle {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.flower__white-circle.active {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px #ff3366, 0 0 40px #ff0066, 0 0 60px #ff1493;
+    background-color: #ff3366 !important;
+}
+
+/* Efecto hover para las hojas */
+.flower__leafs:hover {
+    filter: drop-shadow(0 0 15px #ff3366);
+}
+
+/* Animación de entrada personalizada */
+@keyframes cardFloatIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5) translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) translateY(0);
+    }
+}
+
+.love-card.show {
+    animation: cardFloatIn 0.4s ease-out forwards;
+}
+
+/* Animación de salida */
+@keyframes cardFloatOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5) translateY(-20px);
+    }
+}
+
+.love-card.hide {
+    animation: cardFloatOut 0.3s ease-in forwards;
+}
+
+/* Estilos para múltiples cards (colores diferentes por flor) */
+.love-card[data-flower="1"] {
+    --card-color: #ff3366;
+}
+
+.love-card[data-flower="2"] {
+    --card-color: #ff0066;
+}
+
+.love-card[data-flower="3"] {
+    --card-color: #ff1493;
+}
+
+.love-card[data-flower="4"] {
+    --card-color: #ff4d6d;
+}
+
+.love-card[data-flower="5"] {
+    --card-color: #ff6b8b;
+}
+
+.love-card[data-flower="6"] {
+    --card-color: #ff8da1;
+}
+
+.love-card[data-flower="7"] {
+    --card-color: #ffa5b5;
+}
+
+.love-card[data-flower="8"] {
+    --card-color: #ffb6c1;
+}
+
+/* Efecto de brillo en el borde según la flor */
+.love-card[data-flower] {
+    box-shadow: 0 10px 30px rgba(255, 51, 102, 0.3),
+                0 0 0 2px var(--card-color, #ff3366),
+                0 0 0 5px #fff;
+}
+
+/* Media query para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+    .love-card {
+        min-width: 280px;
+        max-width: 350px;
+    }
+    
+    .love-card-title {
+        font-size: 1.2em;
+    }
+    
+    .love-card-image {
+        max-height: 300px;
+    }
+    
+    .love-card-message {
+        font-size: 1.2em;
+        padding: 8px;
+    }
+}
+
+/* Media query para tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .love-card {
+        min-width: 320px;
+        max-width: 400px;
+    }
+    
+    .love-card-message {
+        font-size: 1.3em;
+    }
+}
