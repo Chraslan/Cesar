@@ -2,13 +2,13 @@
 
 // Array con mensajes personalizados para cada flor
 const loveMessages = [
-    "Te quiero con todo mi corazón 💖",
+    "Te amo con todo mi corazón 💖",
     "Eres la flor más hermosa de mi jardín 🌸",
     "Mi amor por ti es eterno 💕",
-    "Cada día te quiero más 💗",
+    "Cada día te amo más  💗",
     "Eres mi razón de sonreír 💓",
     "Contigo todo es mejor 💝",
-    "Te quiero hoy, mañana y siempre 💘",
+    "Te amo hoy, mañana y siempre 💘",
     "Eres mi persona favorita 💖",
     "Mi amor por ti crece como esta flor 🌺",
     "Eres lo más bonito que tengo 💗"
