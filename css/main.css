@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 *,
 *::after,
 *::before {
@@ -6,6 +7,26 @@
   box-sizing: border-box;
 }
 
+
+h1.label-texto {
+    font-family: 'Loveness Two', 'Dancing Script', cursive; /* Fallback a Dancing Script si no encuentra Loveness */
+    font-size: 4rem; /* Letra más grande */
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 0, 100, 0.5);
+    letter-spacing: 2px;
+    margin-bottom: -5px;
+}
+
+/* Estilos específicos para móvil */
+@media only screen and (max-width: 600px) {
+    .label-texto {
+        font-size: 2.5rem; /* Tamaño más pequeño en móvil */
+        top: 2vh; /* Ajusta la posición en móvil */
+        letter-spacing: 1px;
+        text-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
+    }
+}
 :root {
   --dark-color: #000;
   --flower-color: #ff3366;
